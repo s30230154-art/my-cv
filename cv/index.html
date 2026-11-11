@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chea Sokneang – Resume</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap');
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #e8edf3;
+      margin: 0;
+      padding: 40px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      width: 100%;
+    }
+
+    .resume {
+      width: 800px;
+      max-width: 800px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      background: #fff;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.13);
+      border-radius: 4px;
+      overflow: hidden;
+      border-top: 5px solid #4a7fd4;
+    }
+
+    /* ── LEFT SIDEBAR ── */
+    .sidebar {
+      background: #1a3a6b;
+      color: #fff;
+      padding: 48px 28px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    .avatar-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: #2e5fa3;
+      border: 3px solid #fff;
+      outline: 4px solid #4a7fd4;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .sidebar-section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #7eb3f5;
+      margin-bottom: 14px;
+      border-bottom: 1px solid #2e5fa3;
+      padding-bottom: 6px;
+    }
+
+    /* Contact */
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 12.5px;
+      color: #cdddf5;
+      line-height: 1.5;
+    }
+
+    .contact-list li .icon {
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: #7eb3f5;
+    }
+
+    /* Skills */
+    .skill-item {
+      margin-bottom: 12px;
+    }
+
+    .skill-item:last-child { margin-bottom: 0; }
+
+    .skill-name {
+      font-size: 12.5px;
+      color: #cdddf5;
+      margin-bottom: 5px;
+    }
+
+    .skill-bar-bg {
+      background: #2e5fa3;
+      border-radius: 20px;
+      height: 6px;
+      width: 100%;
+    }
+
+    .skill-bar-fill {
+      background: #7eb3f5;
+      height: 6px;
+      border-radius: 20px;
+      transition: width 1s ease;
+    }
+
+    /* Reference */
+    .ref-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .ref-tel {
+      font-size: 12px;
+      color: #cdddf5;
+    }
+
+    /* ── MAIN CONTENT ── */
+    .main {
+      padding: 48px 36px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* Header */
+    .header-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: #1a3a6b;
+      line-height: 1.1;
+      letter-spacing: 1px;
+    }
+
+    .header-name span {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      color: #4a7fd4;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .header-subtitle {
+      font-size: 13px;
+      color: #4a7fd4;
+      font-weight: 600;
+      margin-top: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Section */
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #1a3a6b;
+      border-bottom: 2px solid #1a3a6b;
+      padding-bottom: 6px;
+      margin-bottom: 16px;
+    }
+
+    /* About */
+    .about-text {
+      font-size: 13px;
+      color: #444;
+      line-height: 1.8;
+    }
+
+    /* Education */
+    .edu-item {
+      margin-bottom: 20px;
+      padding-left: 14px;
+      border-left: 3px solid #4a7fd4;
+    }
+
+    .edu-item:last-child { margin-bottom: 0; }
+
+    .edu-degree {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #1a3a6b;
+    }
+
+    .edu-school {
+      font-size: 12.5px;
+      color: #4a7fd4;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .edu-year {
+      display: inline-block;
+      margin-top: 5px;
+      font-size: 11px;
+      color: #fff;
+      background: #4a7fd4;
+      border-radius: 20px;
+      padding: 2px 10px;
+      font-weight: 600;
+    }
+
+    .edu-details {
+      margin-top: 8px;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .edu-details li {
+      font-size: 12px;
+      color: #555;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      line-height: 1.6;
+    }
+
+    .edu-details li::before {
+      content: '▸';
+      color: #4a7fd4;
+      flex-shrink: 0;
+      font-size: 11px;
+      margin-top: 2px;
+    }
+
+    .gpa-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #eef4ff;
+      color: #1a3a6b;
+      border: 1px solid #c0d6f5;
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 11.5px;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+
+    /* Experience */
+    .exp-item {
+      margin-bottom: 20px;
+      padding-left: 14px;
+      border-left: 3px solid #4a7fd4;
+    }
+
+    .exp-item:last-child { margin-bottom: 0; }
+
+    .exp-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #1a3a6b;
+    }
+
+    .exp-org {
+      font-size: 12.5px;
+      color: #4a7fd4;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .exp-year {
+      display: inline-block;
+      margin-top: 5px;
+      font-size: 11px;
+      color: #fff;
+      background: #4a7fd4;
+      border-radius: 20px;
+      padding: 2px 10px;
+      font-weight: 600;
+    }
+
+    .exp-desc {
+      margin-top: 8px;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .exp-desc li {
+      font-size: 12px;
+      color: #555;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      line-height: 1.6;
+    }
+
+    .exp-desc li::before {
+      content: '▸';
+      color: #4a7fd4;
+      flex-shrink: 0;
+      font-size: 11px;
+      margin-top: 2px;
+    }
+
+    /* Languages */
+    .lang-item {
+      margin-bottom: 10px;
+    }
+
+    .lang-item:last-child { margin-bottom: 0; }
+
+    .lang-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+
+    .lang-name {
+      font-size: 12.5px;
+      color: #cdddf5;
+    }
+
+    .lang-level {
+      font-size: 10.5px;
+      color: #7eb3f5;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .lang-dots {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #2e5fa3;
+    }
+
+    .lang-dot.filled {
+      background: #7eb3f5;
+    }
+
+    /* Divider line under name */
+    .header-divider {
+      width: 48px;
+      height: 3px;
+      background: #4a7fd4;
+      border-radius: 2px;
+      margin-top: 10px;
+    }
+
+    /* Tech tags */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      background: #eef4ff;
+      color: #1a3a6b;
+      border: 1px solid #c0d6f5;
+      border-radius: 4px;
+      padding: 3px 9px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 10mm auto;
+      }
+      html, body {
+        background: #fff !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+      .resume {
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        width: 100% !important;
+        max-width: 190mm !important;
+        margin: 0 auto !important;
+        border-top: 5px solid #4a7fd4 !important;
+      }
+      .sidebar {
+        background: #1a3a6b !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .print-btn-wrap,
+      .footer-note {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="print-btn-wrap">
+    <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
+  </div>
+
+  <style>
+    .print-btn-wrap {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      z-index: 999;
+    }
+    .print-btn {
+      background: #1a3a6b;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 9px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 3px 12px rgba(26,58,107,0.25);
+      transition: background 0.2s;
+    }
+    .print-btn:hover { background: #4a7fd4; }
+  </style>
+  <div class="resume">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="avatar-wrap">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+          <img src="photo.jpg" alt="Chea Sokneang" class="avatar" />
+          <div style="text-align:center;">
+            <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;color:#fff;letter-spacing:1px;">CHEA SOKNEANG</div>
+            <div style="font-size:11px;color:#7eb3f5;margin-top:3px;letter-spacing:0.5px;">IT Student · BBU</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTACT -->
+      <div>
+        <div class="sidebar-section-title">Contact</div>
+        <ul class="contact-list">
+          <li>
+            <span class="icon">📞</span>
+            <span>+(885) 1643429</span>
+          </li>
+          <li>
+            <span class="icon">✉️</span>
+            <span>s30230154@gmail.com</span>
+          </li>
+          <li>
+            <span class="icon">📍</span>
+            <span>Por krom Village, Traey sla Commune, Sa'ang District, Kondal Province</span>
+          </li>
+          <li>
+            <span class="icon">💻</span>
+            <span><a href="https://github.com/s30230154-art" target="_blank" style="color:#cdddf5;text-decoration:none;">github.com/s30230154-art</a></span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- SKILLS -->
+      <div>
+        <div class="sidebar-section-title">Skills</div>
+
+        <div class="skill-item">
+          <div class="skill-name">Critical Thinking</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Time Management</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Teamwork</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Microsoft Office</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:82%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Networking</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:78%"></div></div>
+        </div>
+      </div>
+
+      <!-- REFERENCE -->
+      <div>
+        <div class="sidebar-section-title">Reference</div>
+        <div class="ref-name">Mrs. Ton Sokchea</div>
+        <div class="ref-tel">📞 +(885) 15376703</div>
+      </div>
+
+      <!-- LANGUAGES -->
+      <div>
+        <div class="sidebar-section-title">Languages</div>
+
+        <div class="lang-item">
+          <div class="lang-row">
+            <span class="lang-name">Khmer</span>
+            <span class="lang-level">Native</span>
+          </div>
+          <div class="lang-dots">
+            <div class="lang-dot filled"></div>
+            <div class="lang-dot filled"></div>
+            <div class="lang-dot filled"></div>
+            <div class="lang-dot filled"></div>
+            <div class="lang-dot filled"></div>
+          </div>
+        </div>
+
+        <div class="lang-item">
+          <div class="lang-row">
+            <span class="lang-name">English</span>
+            <span class="lang-level">Elementary</span>
+          </div>
+          <div class="lang-dots">
+            <div class="lang-dot filled"></div>
+            <div class="lang-dot filled"></div>
+            <div class="lang-dot"></div>
+            <div class="lang-dot"></div>
+            <div class="lang-dot"></div>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+      <!-- NAME -->
+      <div>
+        <div class="header-name">
+          <span>Chea</span>
+          SOKNEANG
+        </div>
+        <div class="header-subtitle">Year 2 IT Student · Build Bright University</div>
+        <div class="header-divider"></div>
+      </div>
+
+      <!-- ABOUT ME -->
+      <div>
+        <div class="section-title">About Me</div>
+        <p class="about-text">
+          Second-year IT student with a strong interest in troubleshooting and helping users solve
+          technical problems. I have a good understanding of computer hardware, operating systems,
+          and basic networking. I am patient, communicate clearly, and am looking for an IT support
+          internship or part-time role to gain real-world experience.
+        </p>
+      </div>
+
+      <!-- EDUCATION -->
+      <div>
+        <div class="section-title">Education</div>
+
+        <div class="edu-item">
+          <div class="edu-degree">Bachelor of Information Technology</div>
+          <div class="edu-school">Build Bright University (BBU), Cambodia</div>
+          <span class="edu-year">2025 – Present (Expected: 2026)</span>
+          <ul class="edu-details">
+            <li>Currently in Year 2</li>
+            <li>Relevant courses: Computer Networking, Database Management, Presentation Skills, Critical Thinking, Microsoft Office, Programming</li>
+            <li><span class="gpa-badge">⭐ GPA: 3.00</span></li>
+          </ul>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-degree">High School Diploma (Grade 12)</div>
+          <div class="edu-school">Treuy Sla, Kandal, Cambodia</div>
+          <span class="edu-year">2019 – 2025</span>
+        </div>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div>
+        <div class="section-title">Experience</div>
+
+        <div class="exp-item">
+          <div class="exp-title">Academic Project — Computer Networking</div>
+          <div class="exp-org">Build Bright University, Cambodia</div>
+          <span class="exp-year">2025 – Present</span>
+          <ul class="exp-desc">
+            <li>Studied and applied networking concepts including IP addressing, subnetting, and basic routing.</li>
+            <li>Practiced using tools and operating systems covered in the IT curriculum.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-title">School Project — Cake Shop Website</div>
+          <div class="exp-org">Build Bright University, Cambodia</div>
+          <span class="exp-year">2026</span>
+          <ul class="exp-desc">
+            <li>Built a full-stack cake shop web application using <strong>HTML, CSS</strong> and <strong>Python</strong>, with a <strong>SQL Server</strong> database backend.</li>
+            <li>Deployed the front-end live at: <a href="https://s30230154-art.github.io/cakemmeme/" target="_blank" style="color:#4a7fd4;word-break:break-all;">s30230154-art.github.io/cakemmeme</a></li>
+            <li>Worked in a team of <strong>3</strong> and was responsible for <strong>database design and management</strong>.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">Python</span>
+            <span class="tag">SQL Server</span>
+            <span class="tag">GitHub Pages</span>
+            <span class="tag">Team Project</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOOLS & TECHNOLOGIES -->
+      <div>
+        <div class="section-title">Tools &amp; Technologies</div>
+        <div class="tags">
+          <span class="tag">HTML &amp; CSS</span>
+          <span class="tag">Python</span>
+          <span class="tag">SQL Server</span>
+          <span class="tag">Microsoft Office</span>
+          <span class="tag">Computer Networking</span>
+          <span class="tag">Database Management</span>
+          <span class="tag">GitHub</span>
+          <span class="tag">Windows OS</span>
+          <span class="tag">Hardware Troubleshooting</span>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <div class="footer-note" style="text-align:center;margin-top:18px;font-size:11px;color:#aaa;font-family:'Open Sans',sans-serif;padding-bottom:30px;">
+    Chea Sokneang · s30230154@gmail.com · +(885) 1643429
+  </div>
+
+</body>
+</html>
+
